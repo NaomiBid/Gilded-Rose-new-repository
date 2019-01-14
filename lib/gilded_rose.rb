@@ -27,18 +27,11 @@ class GildedRose
   end
 
   def update_brie
-    if @items[0].quality == 49
-      @items[0].quality = @items[0].quality + 1
-    end
-    if @items[0].quality == 50
-      return
-    end
-    if @items[0].sell_in > 0
-      @items[0].quality = @items[0].quality + 1
-    else
-      @items[0].quality = @items[0].quality + 2
-    end
     @items[0].sell_in = @items[0].sell_in - 1
+    return if @items[0].quality >= 50
+    @items[0].quality = @items[0].quality + 1
+    return if @items[0].quality >= 50
+    @items[0].quality = @items[0].quality + 1 if @items[0].sell_in < 0
   end
 
   def update_sulphuras
