@@ -8,45 +8,45 @@ class GildedRose
     @items.each do |item|
       case item.name
       when "item"
-        update_normal
+        update_normal(item)
       when "Aged Brie"
-        update_brie
+        update_brie(item)
       when "Sulfuras, Hand of Ragnaros"
-        update_sulphuras
+        update_sulphuras(item)
       when "Backstage passes to a TAFKAL80ETC concert"
-        update_backstage
+        update_backstage(item)
       end
     end
   end
 
-  def update_normal
-    @items[0].sell_in = @items[0].sell_in - 1
-    return if @items[0].quality = 0
-    @items[0].quality = @items[0].quality - 1
-    @items[0].quality = @items[0].quality - 1 if @items[0].sell_in <= 0
+  def update_normal(item)
+    item.sell_in = item.sell_in - 1
+    return if item.quality = 0
+    item.quality =- 1
+    item.quality =- 1 if item.sell_in <= 0
   end
 
-  def update_brie
-    @items[0].sell_in = @items[0].sell_in - 1
-    return if @items[0].quality >= 50
-    @items[0].quality = @items[0].quality + 1
-    return if @items[0].quality >= 50
-    @items[0].quality = @items[0].quality + 1 if @items[0].sell_in < 0
+  def update_brie(item)
+    item.sell_in = item.sell_in - 1
+    return if item.quality >= 50
+    item.quality = item.quality + 1
+    return if item.quality >= 50
+    item.quality = item.quality + 1 if item.sell_in < 0
   end
 
-  def update_sulphuras
+  def update_sulphuras(item)
   end
 
-  def update_backstage
-    @items[0].quality = 0 if @items[0].sell_in <= 0
-    @items[0].sell_in = @items[0].sell_in - 1
-    return if @items[0].quality >= 50
-    @items[0].quality = @items[0].quality + 1
-    return if @items[0].quality >= 50
-    @items[0].quality = @items[0].quality + 1 if @items[0].sell_in < 10
-    return if @items[0].quality >= 50
-    @items[0].quality = @items[0].quality + 1 if @items[0].sell_in < 5
-    @items[0].quality = 0 if @items[0].sell_in <= 0
+  def update_backstage(item)
+    item.quality = 0 if item.sell_in <= 0
+    item.sell_in = item.sell_in - 1
+    return if item.quality >= 50
+    item.quality = item.quality + 1
+    return if item.quality >= 50
+    item.quality = item.quality + 1 if item.sell_in < 10
+    return if item.quality >= 50
+    item.quality = item.quality + 1 if item.sell_in < 5
+    item.quality = 0 if item.sell_in <= 0
   end
 
 end
