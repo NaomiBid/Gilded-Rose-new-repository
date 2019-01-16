@@ -15,7 +15,7 @@ class GildedRose
       when "Aged Brie"
         update_brie(item)
       when "Sulfuras, Hand of Ragnaros"
-        update_sulphuras(item)
+        return item
       when "Backstage passes to a TAFKAL80ETC concert"
         update_backstage(item)
       end
@@ -29,10 +29,7 @@ class GildedRose
 
   def update_brie(item)
     item = Brie.new(item)
-    item.update 
-  end
-
-  def update_sulphuras(item)
+    item.update
   end
 
   def update_backstage(item)
