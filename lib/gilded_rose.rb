@@ -1,4 +1,5 @@
 require 'normal'
+require 'brie'
 
 class GildedRose
 
@@ -27,11 +28,8 @@ class GildedRose
   end
 
   def update_brie(item)
-    item.sell_in = item.sell_in - 1
-    return if item.quality >= 50
-    item.quality = item.quality + 1
-    return if item.quality >= 50
-    item.quality = item.quality + 1 if item.sell_in < 0
+    item = Brie.new(item)
+    item.update 
   end
 
   def update_sulphuras(item)
