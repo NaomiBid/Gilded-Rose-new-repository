@@ -1,3 +1,5 @@
+require 'normal'
+
 class GildedRose
 
   def initialize(items)
@@ -20,10 +22,8 @@ class GildedRose
   end
 
   def update_normal(item)
-    item.sell_in = item.sell_in - 1
-    return if item.quality = 0
-    item.quality =- 1
-    item.quality =- 1 if item.sell_in <= 0
+    item = Normal.new(item)
+    item.update
   end
 
   def update_brie(item)
