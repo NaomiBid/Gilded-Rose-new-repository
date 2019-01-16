@@ -1,5 +1,6 @@
 require 'normal'
 require 'brie'
+require 'backstage'
 
 class GildedRose
 
@@ -33,15 +34,8 @@ class GildedRose
   end
 
   def update_backstage(item)
-    item.quality = 0 if item.sell_in <= 0
-    item.sell_in = item.sell_in - 1
-    return if item.quality >= 50
-    item.quality = item.quality + 1
-    return if item.quality >= 50
-    item.quality = item.quality + 1 if item.sell_in < 10
-    return if item.quality >= 50
-    item.quality = item.quality + 1 if item.sell_in < 5
-    item.quality = 0 if item.sell_in <= 0
+    item = Backstage.new(item)
+    item.update
   end
 
 end
