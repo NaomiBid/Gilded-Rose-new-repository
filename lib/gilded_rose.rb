@@ -2,6 +2,7 @@ require 'normal'
 require 'brie'
 require 'backstage'
 require 'sulfuras'
+require 'conjured'
 
 class GildedRose
 
