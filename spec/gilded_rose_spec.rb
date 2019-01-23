@@ -141,5 +141,30 @@ describe GildedRose do
         end
       end
     end
+
+    context 'when item is conjured' do
+
+      it "lowers the sell_in by one after a day" do
+        item = Conjured.new("item", 1, 0)
+        GildedRose.new([item]).update_quality
+        expect(item.sell_in).to eq 0
+      end
+
+      context 'before sell_in' do
+        it 'lowers quality by two after one day' do
+          item = Conjured.new("item", 1, 2)
+          GildedRose.new([item]).update_quality
+          expect(item.quality).to eq(0)
+        end
+      end
+
+      context 'after sell_in' do
+        it 'lowers quality by four after a day' do
+          item = Conjured.new("item", 0, 4)
+          GildedRose.new([item]).update_quality
+          expect(item.quality).to eq(0)
+        end
+      end
+    end
   end
 end
