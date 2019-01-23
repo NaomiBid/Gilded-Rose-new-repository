@@ -18,14 +18,14 @@ class GildedRose
       when "Sulfuras, Hand of Ragnaros"
         return item
       when "Backstage passes to a TAFKAL80ETC concert"
-        update_backstage(item)
+        item.update
       end
     end
   end
 
-  def update_backstage(item)
-    item = Backstage.new(item)
-    item.update
-  end
+#  def update_backstage(item)
+#    item = Backstage.new(item)
+#    item.update
+#  end
 
 end
