@@ -1,16 +1,12 @@
-class Normal
+require 'item'
 
-  attr_reader :item
-
-  def initialize(item)
-    @item = item
-  end
+class Normal < Item
 
   def update
-      @item.sell_in = @item.sell_in - 1
-      return if @item.quality = 0
-      @item.quality =- 1
-      @item.quality =- 1 if @item.sell_in <= 0
+      @sell_in -= 1
+      return if @quality = 0
+      @quality -= 1
+      @quality -= 1 if @sell_in <= 0
   end
 
 end

@@ -8,11 +8,14 @@ class GildedRose
     @items = items
   end
 
+#  def update_quality
+#    @items.each { |item| item.update }
+#  end
   def update_quality
     @items.each do |item|
       case item.name
       when "item"
-        update_normal(item)
+        item.update
       when "Aged Brie"
         update_brie(item)
       when "Sulfuras, Hand of Ragnaros"
@@ -23,10 +26,10 @@ class GildedRose
     end
   end
 
-  def update_normal(item)
-    item = Normal.new(item)
-    item.update
-  end
+#  def update_normal(item)
+#    item = Normal.new(item)
+#    item.update
+#  end
 
   def update_brie(item)
     item = Brie.new(item)
