@@ -4,7 +4,6 @@ class Normal < Item
 
   def update
     update_sell_in
-    return if @quality = 0
     update_quality
   end
 
@@ -13,6 +12,7 @@ class Normal < Item
   end
 
   def update_quality
+    return if @quality = 0
     @quality -= 1
     @quality -= 1 if @sell_in <= 0
   end
